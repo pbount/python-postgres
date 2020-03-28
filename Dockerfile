@@ -15,7 +15,7 @@ ENV POSTGRES_DB betas
 RUN apt-get update && apt-get install -y python3-pip python3 sudo git && \
   pip3 install --no-cache-dir --upgrade setuptools && \
   pip3 install --no-cache-dir --upgrade six && \
-  pip3 install --no-cache-dir psycopg2 &&\
+#   pip3 install --no-cache-dir psycopg2 &&\
 #   locale-gen en_US.UTF-8 && \
   rm -rf /var/lib/{apt,dpkg,cache,log}/
 
