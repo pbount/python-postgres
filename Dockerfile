@@ -2,10 +2,10 @@ FROM postgres:12
 
 MAINTAINER pbount <npbount@gmail.com>
 
-ENV DEBIAN_FRONTEND noninteractive
-ENV LANGUAGE en_US.UTF-8
-ENV LANG en_US.UTF-8
-ENV LC_ALL en_US.UTF-8
+# ENV DEBIAN_FRONTEND noninteractive
+# ENV LANGUAGE en_US.UTF-8
+# ENV LANG en_US.UTF-8
+# ENV LC_ALL en_US.UTF-8
 
 ENV POSTGRES_USER user
 ENV POSTGRES_PASSWORD password
