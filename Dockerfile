@@ -9,10 +9,13 @@ ARG password=password
 ARG database=database
 
 RUN apt-get update && apt-get install -y python3-pip python3 postgresql
-RUN service postgresql start
-RUN sleep 5
+
+# Run commands are executed when the container is being built. However, the service must be started
+# during container runtime. Same for the creation of the user and databases as those require a running
+# postgresql service.
+CMD service postgresql start
 
 # Nested execution of commands. "Create Role" is a command executed using psql which is executed under the
 # default "postgres" user
-RUN su postgres -c "psql -c \"CREATE ROLE ${user} PASSWORD '${password}' SUPERUSER CREATEDB CREATEROLE INHERIT LOGIN;\""
-RUN su postgres -c "createdb -O ${user} ${database}"
+CMD su postgres -c "psql -c \"CREATE ROLE ${user} PASSWORD '${password}' SUPERUSER CREATEDB CREATEROLE INHERIT LOGIN;\""
+CMD su postgres -c "createdb -O ${user} ${database}"
