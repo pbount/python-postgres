@@ -3,6 +3,7 @@ FROM ubuntu:20.04
 MAINTAINER pbount <pavlos.bountagkidis@outlook.com>
 
 ENV DEBIAN_FRONTEND noninteractive
+ENV INSTALL_ON_LINUX 1
 
 ARG user=superuser
 ARG password=password
