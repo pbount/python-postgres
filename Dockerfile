@@ -8,6 +8,7 @@ ENV INSTALL_ON_LINUX 1
 # ARG database=database
 
 RUN apt-get update && apt-get install -y python3-pip python3 postgresql
+RUN pip3 install -Iv pandas==0.24.2
 
 # Run commands are executed when the container is being built. However, the service must be started
 # during container runtime. Same for the creation of the user and databases as those require a running
